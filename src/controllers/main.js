@@ -6,11 +6,12 @@ class MainController {
     HeroesRepoService.getHeroes()
       .then((response) => {
         this.heroList = response.data.map((hero) => {
-          hero.selected = {
-            allies: false,
-            enemies: false
-          }
-          return hero
+          return Object.assign(hero, {
+            selected: {
+              allies: false,
+              enemies: false
+            }
+          });
         })
       })
       .catch((response) => {
