@@ -2,9 +2,10 @@
   "name": "welaikalikesithot",
   "version": "1.0.0",
   "scripts": {
-    "build": "babel src -d app",
+    "build": "babel src -d app; cp node_modules/angular/angular.min.js app/angular.min.js; cp node_modules/babel-polyfill/dist/polyfill.min.js app/polyfill.min.js",
     "watch": "watch 'npm run build' src",
-    "clear": "rm -rf app/*"
+    "clear": "rm -rf app/*",
+    "deploy": "surge ./ weiaikalikesithot.2016.angularattack.io"
   },
   "license": "ISC",
   "dependencies": {
