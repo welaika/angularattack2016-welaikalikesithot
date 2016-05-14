@@ -1,11 +1,11 @@
 #allies(ng-show="mainCtrl.isTabVisible('allies')")
   h2 The Blue Team
-  ul
-    li(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.allies' hero-select="{{mainCtrl.selectedHeroCount('allies')}}" selected='hero.selected.allies')
-      | {{hero.name}}
+  .grid
+    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.allies' hero-select="{{mainCtrl.selectedHeroCount('allies')}}" selected='hero.selected.allies')
+      include _hero_card.jade
   hr
-  ul
-    li(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.allies' hero-select="{{mainCtrl.selectedHeroCount('allies')}}" selected='hero.selected.allies')
-      | {{hero.name}}
-  img(src='http://lorempixel.com/400/200/sports')
-  button(ng-click="mainCtrl.setCurrentTab('enemies')") Go to enemy team ->
+  .grid
+    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.allies' hero-select="{{mainCtrl.selectedHeroCount('allies')}}" selected='hero.selected.allies')
+      include _hero_card.jade
+
+  button.button(ng-click="mainCtrl.setCurrentTab('enemies')") Go to enemy team ->

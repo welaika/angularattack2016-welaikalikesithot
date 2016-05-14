@@ -1,12 +1,11 @@
 #enemies(ng-show="mainCtrl.isTabVisible('enemies')")
   h2 The Red Team
-  ul
-    li(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.enemies' hero-select="{{mainCtrl.selectedHeroCount('enemies')}}" selected='hero.selected.enemies')
-      | {{hero.name}}
+  .grid
+    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.enemies' hero-select="{{mainCtrl.selectedHeroCount('enemies')}}" selected='hero.selected.enemies')
+      include _hero_card.jade
   hr
-  ul
-    li(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.enemies' hero-select="{{mainCtrl.selectedHeroCount('enemies')}}" selected='hero.selected.enemies')
-      | {{hero.name}}
-  img(src='http://lorempixel.com/400/200/animals')
-  button(ng-click="mainCtrl.setCurrentTab('allies')") Go to your team ->
-  button(ng-click="mainCtrl.setCurrentTab('match_stats')") Go to stats ->
+  .grid
+    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.enemies' hero-select="{{mainCtrl.selectedHeroCount('enemies')}}" selected='hero.selected.enemies')
+      include _hero_card.jade
+  button.button(ng-click="mainCtrl.setCurrentTab('allies')") < back to your team
+  button.button(ng-click="mainCtrl.setCurrentTab('match_stats')") Go to stats ->
