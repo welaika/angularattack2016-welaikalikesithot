@@ -4,3 +4,4 @@ app/*
 !app/.gitkeep
 .DS_Store
 index.html
+.sass-cache
