@@ -2,38 +2,25 @@
 <html>
   <head>
     <title>Angular 2 QuickStart JS</title>
-<<<<<<< HEAD
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Init -->
-    <script src='app/angular.min.js'></script>
-    <script src='app/polyfill.min.js'></script>
-
-    <!-- Main -->
-    <script src='app/app.js'></script>
-    <script src='app/constants.js'></script>
-
-    <!-- Services -->
-    <script src='app/services/heroes-repo.js'></script>
-
-    <!-- Directives -->
-    <script src='app/directives/heroes-list.js'></script>
-
-    <!-- Filters -->
-    <script src='app/filters/image-name.js'></script>
-
-    <!-- Controllers -->
-    <script src='app/controllers/main.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <!-- Init-->
+    <script src="app/angular.min.js"></script>
+    <script src="app/polyfill.min.js"></script>
+    <!-- Main-->
+    <script src="app/app.js"></script>
+    <script src="app/constants.js"></script>
+    <!-- Services-->
+    <script src="app/services/heroes-repo.js"></script>
+    <!-- Filters-->
+    <script src="app/filters/image-name.js"></script>
+    <!-- Directives-->
+    <script src="app/directives/heroes-list.js"></script>
+    <!-- Controllers-->
+    <script src="app/controllers/main.js"></script>
   </head>
-
   <body ng-app="hots" ng-controller="MainController as mainCtrl">
-    <div style="display: inline-block" ng-repeat="hero in mainCtrl.heroList">
-      {{hero.name}}
-      <br />
-      <img ng-src="http://www.heroesfire.com/images/wikibase/icon/heroes/{{hero.name | imageName }}.png">
-    </div>
-
+    <div style="display: inline-block" ng-repeat="hero in mainCtrl.heroList">{{hero.name}}<br/><img ng-src="http://www.heroesfire.com/images/wikibase/icon/heroes/{{hero.name | imageName }}.png"/></div>
     <div id="allies" ng-show="mainCtrl.isTabVisible('allies')">
       <h2>The Blue Team</h2><img src="http://lorempixel.com/400/200/sports"/>
       <button ng-click="mainCtrl.setCurrentTab('enemies')">Go to enemy team -></button>
