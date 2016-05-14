@@ -1,11 +1,11 @@
 #enemies(ng-show="mainCtrl.isTabVisible('enemies')")
   h2 The Red Team
   ul
-    li(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.enemies' ng-click='hero.selected.enemies = false')
+    li(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.enemies' hero-select="{{mainCtrl.selectedHeroCount('enemies')}}" selected='hero.selected.enemies')
       | {{hero.name}}
   hr
   ul
-    li(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.enemies' ng-click='hero.selected.enemies = true')
+    li(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.enemies' hero-select="{{mainCtrl.selectedHeroCount('enemies')}}" selected='hero.selected.enemies')
       | {{hero.name}}
   img(src='http://lorempixel.com/400/200/animals')
   button(ng-click="mainCtrl.setCurrentTab('allies')") Go to your team ->

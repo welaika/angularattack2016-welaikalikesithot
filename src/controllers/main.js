@@ -3,6 +3,7 @@ class MainController {
   constructor($log, HeroesRepoService) {
     this.currentTab = 'allies';
     this.heroList = {};
+
     HeroesRepoService.getHeroes()
       .then((response) => {
         this.heroList = response.data.map((hero) => {
@@ -17,6 +18,10 @@ class MainController {
       .catch((response) => {
         $log.error(`Error fetching heroes list: ${response.status} status code`)
       })
+  }
+
+  selectedHeroCount(team) {
+    return this.heroList.filter((hero) => hero.selected[team]).length
   }
 
   isTabVisible(tabName) {
