@@ -1,0 +1,4 @@
+div(style='display: inline-block', ng-repeat='hero in mainCtrl.heroList')
+  | {{hero.name}}
+  br
+  img(ng-src='http://www.heroesfire.com/images/wikibase/icon/heroes/{{hero.name | imageName }}.png')

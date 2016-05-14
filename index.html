@@ -1,6 +1,8 @@
+
 <html>
   <head>
     <title>Angular 2 QuickStart JS</title>
+<<<<<<< HEAD
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
 
@@ -29,27 +31,21 @@
     <div style="display: inline-block" ng-repeat="hero in mainCtrl.heroList">
       {{hero.name}}
       <br />
-      <img ng-src="http://www.heroesfire.com/images/wikibase/icon/heroes/{{hero.name | imageName }}.png"
+      <img ng-src="http://www.heroesfire.com/images/wikibase/icon/heroes/{{hero.name | imageName }}.png">
     </div>
 
     <div id="allies" ng-show="mainCtrl.isTabVisible('allies')">
-      <h2>The Blue Team</h2>
-      <img src="http://lorempixel.com/400/200/sports">
+      <h2>The Blue Team</h2><img src="http://lorempixel.com/400/200/sports"/>
       <button ng-click="mainCtrl.setCurrentTab('enemies')">Go to enemy team -></button>
     </div>
-
     <div id="enemies" ng-show="mainCtrl.isTabVisible('enemies')">
-      <h2>The Red Team</h2>
-      <img src="http://lorempixel.com/400/200/animals">
-      <button ng-click="mainCtrl.setCurrentTab('allies')"><- Go to your team</button>
+      <h2>The Red Team</h2><img src="http://lorempixel.com/400/200/animals"/>
+      <button ng-click="mainCtrl.setCurrentTab('allies')">Go to your team -></button>
       <button ng-click="mainCtrl.setCurrentTab('match_stats')">Go to stats -></button>
     </div>
-
     <div id="match_stats" ng-show="mainCtrl.isTabVisible('match_stats')">
-      <h2>Match Statistics</h2>
-      <img src="http://lorempixel.com/400/200">
+      <h2>Match Statistics</h2><img src="http://lorempixel.com/400/200"/>
       <button ng-click="mainCtrl.setCurrentTab('enemies')"><- Go to enemy team</button>
     </div>
-
   </body>
 </html>

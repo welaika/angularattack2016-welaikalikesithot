@@ -1,0 +1,23 @@
+html
+  head
+    title Angular 2 QuickStart JS
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='styles.css')
+    // Init
+    script(src='app/angular.min.js')
+    script(src='app/polyfill.min.js')
+    // Main
+    script(src='app/app.js')
+    script(src='app/constants.js')
+    // Services
+    script(src='app/services/heroes-repo.js')
+    // Directives
+    script(src='app/directives/heroes-list.js')
+    // Controllers
+    script(src='app/controllers/main.js')
+  body(ng-app='hots', ng-controller='MainController as mainCtrl')
+    include ./partials/_heroes_list.jade
+    include ./partials/_allies.jade
+    include ./partials/_enemies.jade
+    include ./partials/_stats.jade
+
