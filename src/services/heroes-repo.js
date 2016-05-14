@@ -14,4 +14,4 @@ angular
     let fn = ($http, API) => new HeroesRepoService($http, API);
     fn.$inject = HeroesRepoService.$inject;
     return fn;
-})())
+  })())

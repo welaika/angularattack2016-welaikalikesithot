@@ -1,5 +1,7 @@
 #enemies(ng-show="mainCtrl.isTabVisible('enemies')")
   h2 The Red Team
+  ul
+    li(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.enemies')
   img(src='http://lorempixel.com/400/200/animals')
   button(ng-click="mainCtrl.setCurrentTab('allies')") Go to your team ->
   button(ng-click="mainCtrl.setCurrentTab('match_stats')") Go to stats ->

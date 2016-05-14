@@ -5,7 +5,13 @@ class MainController {
     this.heroList = {};
     HeroesRepoService.getHeroes()
       .then((response) => {
-        this.heroList = response.data
+        this.heroList = response.data.map((hero) => {
+          hero.selected = {
+            allies: false,
+            enemies: false
+          }
+          return hero
+        })
       })
       .catch((response) => {
         $log.error(`Error fetching heroes list: ${response.status} status code`)

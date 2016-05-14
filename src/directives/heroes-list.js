@@ -1,9 +1,8 @@
 class HeroesListDirective {
   /*@ngInject*/
   constructor() {
-    this.restrict = 'A';
-    this.scope = {};
-    this.require = 'ngModel';
+    this.restrict = 'A'
+    this.scope = {}
   }
 
   link(scope, element, attrs, ctrl) {
@@ -13,4 +12,8 @@ class HeroesListDirective {
 
 angular
   .module("hots")
-  .directive("heroesList", HeroesListDirective)
+  .directive("heroesList", (() => {
+    let fn = () => new HeroesListDirective();
+    fn.$inject = HeroesListDirective.$inject;
+    return fn;
+  })())

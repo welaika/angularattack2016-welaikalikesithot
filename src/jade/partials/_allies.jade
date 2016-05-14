@@ -1,4 +1,11 @@
 #allies(ng-show="mainCtrl.isTabVisible('allies')")
   h2 The Blue Team
+  ul
+    li(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.allies' ng-click='hero.selected.allies = false')
+      | {{hero.name}}
+  hr
+  ul
+    li(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.allies' ng-click='hero.selected.allies = true')
+      | {{hero.name}}
   img(src='http://lorempixel.com/400/200/sports')
   button(ng-click="mainCtrl.setCurrentTab('enemies')") Go to enemy team ->
