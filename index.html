@@ -18,9 +18,18 @@
     <!-- Directives -->
     <script src='app/directives/heroes-list.js'></script>
 
+    <!-- Filters -->
+    <script src='app/filters/image-name.js'></script>
+
     <!-- Controllers -->
     <script src='app/controllers/main.js'></script>
   </head>
+
   <body ng-app="hots" ng-controller="MainController as mainCtrl">
+    <div style="display: inline-block" ng-repeat="hero in mainCtrl.heroList">
+      {{hero.name}}
+      <br />
+      <img ng-src="http://www.heroesfire.com/images/wikibase/icon/heroes/{{hero.name | imageName }}.png"
+    </div>
   </body>
 </html>
