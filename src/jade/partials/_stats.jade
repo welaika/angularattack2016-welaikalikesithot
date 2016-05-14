@@ -1,3 +1,21 @@
-#match_stats(ng-show="mainCtrl.isTabVisible('match_stats')")
+#match_stats(ng-show="mainCtrl.isTabVisible('match_stats')" match-stats allies-heroes="{{mainCtrl.selectedHero('allies')}}" enemies-heroes="{{mainCtrl.selectedHero('enemies')}}" stats="mainCtrl.stats")
   h2 Match Statistics
+
+  .grid
+    .grid__item.width-4-12
+    .grid__item.width-4-12 Allies
+    .grid__item.width-4-12 Enemies
+    .grid__item.width-4-12 complexity
+    .grid__item.width-4-12 {{mainCtrl.stats.allies.complexity}}
+    .grid__item.width-4-12 {{mainCtrl.stats.enemies.complexity}}
+    .grid__item.width-4-12 damage
+    .grid__item.width-4-12 {{mainCtrl.stats.allies.damage}}
+    .grid__item.width-4-12 {{mainCtrl.stats.enemies.damage}}
+    .grid__item.width-4-12 survivability
+    .grid__item.width-4-12 {{mainCtrl.stats.allies.survivability}}
+    .grid__item.width-4-12 {{mainCtrl.stats.enemies.survivability}}
+    .grid__item.width-4-12 utility
+    .grid__item.width-4-12 {{mainCtrl.stats.allies.utility}}
+    .grid__item.width-4-12 {{mainCtrl.stats.enemies.utility}}
+
   button.button(ng-click="mainCtrl.setCurrentTab('enemies')") <- Back to enemy team

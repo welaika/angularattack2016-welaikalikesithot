@@ -1,8 +1,9 @@
 class MainController {
   /*@ngInject*/
   constructor($log, HeroesRepoService) {
-    this.currentTab = 'allies';
-    this.heroList = {};
+    this.currentTab = 'allies'
+    this.heroList = {}
+    this.stats = {}
 
     HeroesRepoService.getHeroes()
       .then((response) => {
@@ -20,8 +21,11 @@ class MainController {
       })
   }
 
-  selectedHeroCount(team) {
-    return this.heroList.filter((hero) => hero.selected[team]).length
+  selectedHero(team) {
+    if (this.heroList.length > 0)
+      return this.heroList.filter((hero) => hero.selected[team])
+    else
+      return []
   }
 
   isTabVisible(tabName) {
