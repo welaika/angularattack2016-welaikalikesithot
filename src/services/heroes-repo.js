@@ -8,4 +8,6 @@ class HeroesRepoService {
     }
 }
 
-angular.module('hots').factory('HeroesRepoService', HeroesRepoService);
+angular
+  .module('hots')
+  .factory('HeroesRepoService', HeroesRepoService)
