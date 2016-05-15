@@ -1,11 +1,15 @@
 #allies(ng-show="mainCtrl.isTabVisible('allies')")
   h2.align--center Allies Team
+
+  div
+    input(type="text" placeholder="search..." ng-model="mainCtrl.searchText" ng-change="mainCtrl.search()")
+
   .grid
-    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.allies' hero-select="{{mainCtrl.selectedHero('allies').length}}" selected='hero.selected.allies')
+    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.filteredHeroList' ng-if='hero.selected.allies' hero-select="{{mainCtrl.selectedHero('allies').length}}" selected='hero.selected.allies')
       include _hero_card.jade
   .align--center.space--both-1
     button.button.upcase(ng-click="mainCtrl.setCurrentTab('enemies')") Go to enemy team >
   .grid
-    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.allies' hero-select="{{mainCtrl.selectedHero('allies').length}}" selected='hero.selected.allies')
+    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.filteredHeroList' ng-if='!hero.selected.allies' hero-select="{{mainCtrl.selectedHero('allies').length}}" selected='hero.selected.allies')
       include _hero_card.jade
 
