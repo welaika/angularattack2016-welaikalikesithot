@@ -3,7 +3,7 @@ class MainController {
   constructor($log, HeroesRepoService) {
     this.currentTab = 'allies'
     this.heroList = {}
-    this.stats = {}
+    this.stats = { allies: {complexity: 0, damage: 0, survivability: 0, utility: 0}, enemies: {complexity: 0, damage: 0, survivability: 0, utility: 0} }
 
     HeroesRepoService.getHeroes()
       .then((response) => {

@@ -40,7 +40,7 @@ html
     // Controllers
     script(src='app/controllers/main.js')
   body(ng-app='hots', ng-controller='MainController as mainCtrl')
-    include ./partials/_allies.jade
-    include ./partials/_enemies.jade
-    include ./partials/_stats.jade
-
+    .wrap
+      include ./partials/_allies.jade
+      include ./partials/_enemies.jade
+      include ./partials/_stats.jade

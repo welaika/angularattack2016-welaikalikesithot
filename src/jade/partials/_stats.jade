@@ -2,20 +2,26 @@
   h2 Match Statistics
 
   .grid
-    .grid__item.width-4-12
-    .grid__item.width-4-12 Allies
-    .grid__item.width-4-12 Enemies
-    .grid__item.width-4-12 complexity
-    .grid__item.width-4-12 {{mainCtrl.stats.allies.complexity}}
-    .grid__item.width-4-12 {{mainCtrl.stats.enemies.complexity}}
-    .grid__item.width-4-12 damage
-    .grid__item.width-4-12 {{mainCtrl.stats.allies.damage}}
-    .grid__item.width-4-12 {{mainCtrl.stats.enemies.damage}}
-    .grid__item.width-4-12 survivability
-    .grid__item.width-4-12 {{mainCtrl.stats.allies.survivability}}
-    .grid__item.width-4-12 {{mainCtrl.stats.enemies.survivability}}
-    .grid__item.width-4-12 utility
-    .grid__item.width-4-12 {{mainCtrl.stats.allies.utility}}
-    .grid__item.width-4-12 {{mainCtrl.stats.enemies.utility}}
+    .grid__item complexity
+    .grid__item.width-6-12
+      | {{mainCtrl.stats.allies.complexity | number: 2}} %
+    .grid__item.width-6-12
+      | {{mainCtrl.stats.enemies.complexity | number: 2}} %
+    .grid__item damage
+    .grid__item.width-6-12
+      | {{mainCtrl.stats.allies.damage | number: 2}} %
+    .grid__item.width-6-12
+      | {{mainCtrl.stats.enemies.damage | number: 2}} %
+    .grid__item survivability
+    .grid__item.width-6-12
+      | {{mainCtrl.stats.allies.survivability | number: 2}} %
+    .grid__item.width-6-12
+      | {{mainCtrl.stats.enemies.survivability | number: 2}} %
+    .grid__item utility
+    .grid__item.width-6-12
+      | {{mainCtrl.stats.allies.utility | number: 2}} %
+    .grid__item.width-6-12
+      | {{mainCtrl.stats.enemies.utility | number: 2}} %
+
 
   button.button(ng-click="mainCtrl.setCurrentTab('enemies')") <- Back to enemy team
