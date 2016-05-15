@@ -1,5 +1,5 @@
 {
-  "name": "likeithots",
+  "name": "welaikalikesithot",
   "version": "1.0.0",
   "scripts": {
     "build": "babel src -d app; cp node_modules/angular/angular.min.js app/angular.min.js; cp node_modules/babel-polyfill/dist/polyfill.min.js app/polyfill.min.js && jade src/jade/index.jade -P -o . && sass src/sass/application.sass ./app/application.css",
