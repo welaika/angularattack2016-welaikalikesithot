@@ -1,11 +1,11 @@
 {
-  "name": "welaikalikesithot",
+  "name": "likeithots",
   "version": "1.0.0",
   "scripts": {
     "build": "babel src -d app; cp node_modules/angular/angular.min.js app/angular.min.js; cp node_modules/babel-polyfill/dist/polyfill.min.js app/polyfill.min.js && jade src/jade/index.jade -P -o . && sass src/sass/application.sass ./app/application.css",
-    "watch": "watch 'npm run build' src",
+    "watch": "gulp generate-dev-service-worker; watch 'npm run build' src",
     "clear": "rm -rf app/*",
-    "deploy": "surge ./ weiaikalikesithot.2016.angularattack.io"
+    "deploy": "gulp generate-service-worker; surge ./ weiaikalikesithot.2016.angularattack.io"
   },
   "license": "ISC",
   "dependencies": {
