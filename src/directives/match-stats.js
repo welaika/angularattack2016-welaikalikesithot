@@ -60,7 +60,6 @@ class MatchStatsDirective{
       addedRatings.hp = addedRateFor(stats, 'hp')
       addedRatings.hpRegen = addedRateFor(stats, 'hpRegen')
 
-      console.log(addedRatings.stunners)
       let entries = Object.entries(addedRatings)
       let sum = 0
       entries.forEach((entry) => {
