@@ -51,14 +51,6 @@ class MainController {
     this.currentTab = tabName;
   }
 
-  search(needle = this.searchText) {
-    if (needle.length == 0) {
-      this.filteredHeroList = this.heroList;
-    }
-
-    let regex = new RegExp('^' + this.searchText + '', 'i')
-    this.filteredHeroList = this.heroList.filter((hero) => hero.name.match(regex) )
-  }
 }
 
 angular
