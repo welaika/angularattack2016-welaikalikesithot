@@ -2,16 +2,15 @@
   h2.align--center Allies Team
 
   .grid
-    .grid__item.width-12-12
-      input(type="text" placeholder="search..." ng-model="mainCtrl.searchText" ng-change="mainCtrl.search()")
-
-  .grid
     .grid__item.grid--fill.align--center.violet
       | selected {{mainCtrl.selectedHero('allies').length}} / 5 heroes
     .grid__item.width-4-12.eq-tab-3-12.eq-lap-2-12.desk-1-12.align--center(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.allies' hero-select="{{mainCtrl.selectedHero('allies').length}}" selected='hero.selected.allies')
       include _hero_card.jade
   .align--center.space--both-1
     button.button.upcase(ng-click="mainCtrl.setCurrentTab('enemies')" ng-disabled="mainCtrl.selectedHero('allies').length < 5") Go to enemy team >
+  .grid
+    .grid__item.width-12-12
+      input(type="text" placeholder="search..." ng-model="mainCtrl.searchText" ng-change="mainCtrl.search()")
   .grid
     .grid__item.width-4-12.eq-tab-3-12.eq-lap-2-12.desk-1-12.align--center(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.allies' hero-select="{{mainCtrl.selectedHero('allies').length}}" selected='hero.selected.allies')
       include _hero_card.jade
