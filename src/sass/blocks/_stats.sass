@@ -1,0 +1,33 @@
+.stats__title
+  text-align: center
+  font-weight: bold
+  font-size: 0.8rem
+  text-transform: uppercase
+
+.stats__value
+  font-size: 1.2rem
+  font-weight: 200
+
+.stats__value--enemies
+  text-align: right
+  @extend .stats__value
+
+.stats__bar
+  font-size: 0
+  position: relative
+  &:after
+    content: ""
+    position: absolute
+    border-right: 2px solid white
+    height: 100%
+    left: calc(50% + #{$grid-gutter / 2})
+
+.stats__bar__allies
+  font-size: 1.2rem
+  display: inline-block
+  background-color: $allies
+  height: 1.5em
+
+.stats__bar__enemies
+  background-color: $enemies
+  @extend .stats__bar__allies
