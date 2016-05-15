@@ -13,5 +13,5 @@
     button.button.upcase.space--both-1(ng-click="mainCtrl.setCurrentTab('allies')") < back to allies team
     button.button.upcase.space--both-1(ng-click="mainCtrl.setCurrentTab('match_stats')" ng-disabled="mainCtrl.selectedHero('enemies').length < 5") Go to stats >
   .grid--narrow.space--both-1
-    .button_active.grid__item.width-4-12.eq-tab-3-12.eq-lap-2-12.desk-1-12.align--center.hero-hots__cart__add(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.enemies' hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected='hero.selected.enemies')
+    .button_active.grid__item.width-4-12.eq-tab-3-12.eq-lap-2-12.desk-1-12.align--center.hero-hots__cart__add(ng-repeat='hero in mainCtrl.filteredHeroList' ng-if='!hero.selected.enemies' hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected='hero.selected.enemies')
       include _hero_card.jade

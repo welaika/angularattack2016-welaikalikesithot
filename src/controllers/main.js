@@ -11,7 +11,7 @@ class MainController {
       HeroesRepoService.getHeroes()
         .then((response) => {
           localStorage.setItem('heroes_json', JSON.stringify(response));
-          this.heroList = response.data.map((hero) => {
+          this.filteredHeroList = this.heroList = response.data.map((hero) => {
             return Object.assign(hero, {
               selected: {
                 allies: false,
