@@ -4,8 +4,9 @@
     .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.enemies' hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected='hero.selected.enemies')
       include _hero_card.jade
   hr
+  button.button(ng-click="mainCtrl.setCurrentTab('allies')") < back to your team
+  button.button(ng-click="mainCtrl.setCurrentTab('match_stats')") Go to stats ->
+  hr
   .grid
     .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.enemies' hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected='hero.selected.enemies')
       include _hero_card.jade
-  button.button(ng-click="mainCtrl.setCurrentTab('allies')") < back to your team
-  button.button(ng-click="mainCtrl.setCurrentTab('match_stats')") Go to stats ->
