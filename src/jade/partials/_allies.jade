@@ -1,8 +1,9 @@
 #allies(ng-show="mainCtrl.isTabVisible('allies')")
   h2.align--center Allies Team
 
-  div
-    input(type="text" placeholder="search..." ng-model="mainCtrl.searchText" ng-change="mainCtrl.search()")
+  .grid
+    .grid__item.width-12-12
+      input(type="text" placeholder="search..." ng-model="mainCtrl.searchText" ng-change="mainCtrl.search()")
 
   .grid
     .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.filteredHeroList' ng-if='hero.selected.allies' hero-select="{{mainCtrl.selectedHero('allies').length}}" selected='hero.selected.allies')
