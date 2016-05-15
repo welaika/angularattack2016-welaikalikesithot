@@ -41,7 +41,6 @@ class MatchStatsDirective{
 
         return memo
       }, {})
-
       return result
     }
 
@@ -52,7 +51,7 @@ class MatchStatsDirective{
     function addedRatingsFor(heroes) {
       let addedRatings = {}
       let ratings = getRatingsForHeroes(heroes)
-      addedRatings. stunners = getStunners(heroes)
+      addedRatings.stunners = getStunners(heroes).length
       addedRatings.complexity = addedRateFor(ratings, 'complexity')
       addedRatings.damage = addedRateFor(ratings, 'damage')
       addedRatings.survivability = addedRateFor(ratings, 'survivability')
