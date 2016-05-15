@@ -21,35 +21,30 @@ class MatchStatsDirective{
       }
     )
 
+
     function getHeroesStats() {
       let heroes_stats = {}
+
       heroes_stats['allies'] = addedRatingsFor(scope.alliesHeroes)
       heroes_stats['enemies'] = addedRatingsFor(scope.enemiesHeroes)
 
-      let complexity_values = ratePercentage(heroes_stats, 'complexity')
-      heroes_stats['allies']['complexity'] = complexity_values['allies']
-      heroes_stats['enemies']['complexity'] = complexity_values['enemies']
+      let result = Object.entries(heroes_stats.allies).reduce((memo, rate)=>{
+        let [rate_key, value] = rate
+        memo[rate_key] = {}
 
-      let damage_values = ratePercentage(heroes_stats, 'damage')
-      heroes_stats['allies']['damage'] = damage_values['allies']
-      heroes_stats['enemies']['damage'] = damage_values['enemies']
+        let array = ['allies', 'enemies']
+        array.forEach((team) => {
+          memo[rate_key][team] = ratePercentage(heroes_stats, team, rate_key)
+        })
 
-      let survivability_values = ratePercentage(heroes_stats, 'survivability')
-      heroes_stats['allies']['survivability'] = survivability_values['allies']
-      heroes_stats['enemies']['survivability'] = survivability_values['enemies']
+        return memo
+      }, {})
 
-      let utility_values = ratePercentage(heroes_stats, 'utility')
-      heroes_stats['allies']['utility'] = utility_values['allies']
-      heroes_stats['enemies']['utility'] = utility_values['enemies']
-
-      return heroes_stats
+      return result
     }
 
-    function ratePercentage(collection, rate_key) {
-      let values =  {}
-      values['allies'] = (collection['allies'][rate_key] / (collection['allies'][rate_key] + collection['enemies'][rate_key])) * 100
-      values['enemies'] = (collection['enemies'][rate_key] / (collection['allies'][rate_key] + collection['enemies'][rate_key])) * 100
-      return values
+    function ratePercentage(heroes_stats, team, rate_key) {
+      return (heroes_stats[team][rate_key] / (heroes_stats.allies[rate_key] + heroes_stats.enemies[rate_key])) * 100
     }
 
     function addedRatingsFor(heroes) {
@@ -59,6 +54,7 @@ class MatchStatsDirective{
       addedRatings.damage = addedRateFor(ratings, 'damage')
       addedRatings.survivability = addedRateFor(ratings, 'survivability')
       addedRatings.utility = addedRateFor(ratings, 'utility')
+
       return addedRatings
     }
 

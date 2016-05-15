@@ -4,24 +4,24 @@
   .grid
     .grid__item complexity
     .grid__item.width-6-12
-      | {{mainCtrl.stats.allies.complexity | number: 2}} %
+      | {{mainCtrl.stats.complexity.allies | number: 2}} %
     .grid__item.width-6-12
-      | {{mainCtrl.stats.enemies.complexity | number: 2}} %
+      | {{mainCtrl.stats.complexity.enemies | number: 2}} %
     .grid__item damage
     .grid__item.width-6-12
-      | {{mainCtrl.stats.allies.damage | number: 2}} %
+      | {{mainCtrl.stats.damage.allies | number: 2}} %
     .grid__item.width-6-12
-      | {{mainCtrl.stats.enemies.damage | number: 2}} %
+      | {{mainCtrl.stats.damage.enemies | number: 2}} %
     .grid__item survivability
     .grid__item.width-6-12
-      | {{mainCtrl.stats.allies.survivability | number: 2}} %
+      | {{mainCtrl.stats.survivability.allies | number: 2}} %
     .grid__item.width-6-12
-      | {{mainCtrl.stats.enemies.survivability | number: 2}} %
+      | {{mainCtrl.stats.survivability.enemies | number: 2}} %
     .grid__item utility
     .grid__item.width-6-12
-      | {{mainCtrl.stats.allies.utility | number: 2}} %
+      | {{mainCtrl.stats.utility.allies | number: 2}} %
     .grid__item.width-6-12
-      | {{mainCtrl.stats.enemies.utility | number: 2}} %
+      | {{mainCtrl.stats.utility.enemies | number: 2}} %
 
 
   button.button(ng-click="mainCtrl.setCurrentTab('enemies')") <- Back to enemy team
