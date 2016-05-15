@@ -1,8 +1,7 @@
 #match_stats(ng-show="mainCtrl.isTabVisible('match_stats')" match-stats allies-heroes="{{mainCtrl.selectedHero('allies')}}" enemies-heroes="{{mainCtrl.selectedHero('enemies')}}" stats="mainCtrl.stats")
   h2 Match Statistics
   .grid.stats
-    .grid__item.stats__title
-      | complexity
+    .grid__item.stats__title complexity
     .grid__item.width-2-12.lte-tab-6-12.stats__value
       | {{mainCtrl.stats.complexity.allies | number: 2}} %
     .grid__item.width-2-12.lte-tab-6-12.lap-push-8-12.stats__value--enemies
@@ -10,8 +9,7 @@
     .grid__item.width-8-12.lap-pull-2-12.lte-tab-fill.stats__bar
       .stats__bar__allies(style="width: {{mainCtrl.stats.complexity.allies | number: 0}}%")
       .stats__bar__enemies(style="width: {{mainCtrl.stats.complexity.enemies | number: 0}}%")
-    .grid__item.stats__title
-      | damage
+    .grid__item.stats__title damage
     .grid__item.width-2-12.lte-tab-6-12.stats__value
       | {{mainCtrl.stats.damage.allies | number: 2}} %
     .grid__item.width-2-12.lte-tab-6-12.lap-push-8-12.stats__value--enemies
@@ -19,8 +17,7 @@
     .grid__item.width-8-12.lap-pull-2-12.lte-tab-fill.stats__bar
       .stats__bar__allies(style="width: {{mainCtrl.stats.damage.allies | number: 0}}%")
       .stats__bar__enemies(style="width: {{mainCtrl.stats.damage.enemies | number: 0}}%")
-    .grid__item.stats__title
-      | survivability
+    .grid__item.stats__title survivability
     .grid__item.width-2-12.lte-tab-6-12.stats__value
       | {{mainCtrl.stats.survivability.allies | number: 2}} %
     .grid__item.width-2-12.lte-tab-6-12.lap-push-8-12.stats__value--enemies
@@ -28,8 +25,7 @@
     .grid__item.width-8-12.lap-pull-2-12.lte-tab-fill.stats__bar
       .stats__bar__allies(style="width: {{mainCtrl.stats.survivability.allies | number: 0}}%")
       .stats__bar__enemies(style="width: {{mainCtrl.stats.survivability.enemies | number: 0}}%")
-    .grid__item.stats__title
-      | utility
+    .grid__item.stats__title utility
     .grid__item.width-2-12.lte-tab-6-12.stats__value
       | {{mainCtrl.stats.utility.allies | number: 2}} %
     .grid__item.width-2-12.lte-tab-6-12.lap-push-8-12.stats__value--enemies
