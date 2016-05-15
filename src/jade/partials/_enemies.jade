@@ -5,11 +5,13 @@
     input(type="text" placeholder="search..." ng-model="mainCtrl.searchText" ng-change="mainCtrl.search()")
 
   .grid
-    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.filteredHeroList' ng-if='hero.selected.enemies' hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected='hero.selected.enemies')
+    .grid__item.grid--fill.align--center.violet
+      | selected {{mainCtrl.selectedHero('enemies').length}} / 5 heroes
+    .grid__item.width-4-12.eq-tab-3-12.eq-lap-2-12.desk-1-12.align--center(ng-repeat='hero in mainCtrl.heroList' ng-if='hero.selected.enemies' hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected='hero.selected.enemies')
       include _hero_card.jade
   .align--center
     button.button.upcase.space--both-1(ng-click="mainCtrl.setCurrentTab('allies')") < back to allies team
-    button.button.upcase.space--both-1(ng-click="mainCtrl.setCurrentTab('match_stats')") Go to stats >
+    button.button.upcase.space--both-1(ng-click="mainCtrl.setCurrentTab('match_stats')" ng-disabled="mainCtrl.selectedHero('enemies').length < 5") Go to stats >
   .grid
-    .grid__item.width-6-12.eq-tab-4-12.eq-lap-3-12.desk-1-12(ng-repeat='hero in mainCtrl.filteredHeroList' ng-if='!hero.selected.enemies' hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected='hero.selected.enemies')
+    .grid__item.width-4-12.eq-tab-3-12.eq-lap-2-12.desk-1-12.align--center(ng-repeat='hero in mainCtrl.heroList' ng-if='!hero.selected.enemies' hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected='hero.selected.enemies')
       include _hero_card.jade
