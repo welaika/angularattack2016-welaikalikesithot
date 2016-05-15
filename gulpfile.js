@@ -12,7 +12,8 @@ gulp.task('generate-service-worker', function(callback) {
     staticFileGlobs: [
         rootDir + '/app/**/*.*',
         rootDir + '/**.html',
-        rootDir + '/images/**.*'
+        rootDir + '/images/**.*',
+        rootDir + '/fonts/**.*'
       ],
     stripPrefix: rootDir
   }, callback);
