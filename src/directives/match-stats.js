@@ -9,6 +9,8 @@ class MatchStatsDirective{
   }
 
   link(scope, element, attrs, ctrl) {
+    var stun_array = ['stunning', 'they are stunned', 'Stun the first enemy', 'stun target enemy', 'stun the target']
+
     scope.$watch('alliesHeroes',
       () => {
         scope.stats = getHeroesStats()
@@ -50,6 +52,7 @@ class MatchStatsDirective{
     function addedRatingsFor(heroes) {
       let addedRatings = {}
       let ratings = getRatingsForHeroes(heroes)
+      addedRatings. stunners = getStunners(heroes)
       addedRatings.complexity = addedRateFor(ratings, 'complexity')
       addedRatings.damage = addedRateFor(ratings, 'damage')
       addedRatings.survivability = addedRateFor(ratings, 'survivability')
@@ -64,6 +67,41 @@ class MatchStatsDirective{
 
     function getRatingsForHeroes(heroes) {
       return angular.fromJson(heroes).map((hero) => hero.ratings)
+    }
+
+    function getAbilitiesDescription(hero) {
+      return hero.abilities[hero.id].map((ability) => ability.description)
+    }
+
+    function getHeroesAbilities(heroes) {
+      var abilities = []
+      angular.fromJson(heroes).forEach(function (hero) { abilities.push({ id: hero.id, descriptions: getAbilitiesDescription(hero)}) })
+      return abilities
+    }
+
+    function getStunners(heroes) {
+      var heroes_array = []
+      var stunners = []
+      getHeroesAbilities(heroes).forEach(function(hero) {
+        heroes_array.push({ id: hero.id, is_stunner: isStunner(hero.descriptions)})
+      })
+      heroes_array.forEach(function(heroes_filtered) {
+        if(heroes_filtered.is_stunner === true) {
+          stunners.push(heroes_filtered.id)
+        }
+      })
+      return stunners
+    }
+
+    function isStunner(hero_descriptions) {
+      var is_stunner = false
+      hero_descriptions.forEach(function (description) {
+        if (new RegExp(stun_array.join("|")).test(description)) {
+          is_stunner = true
+          return true
+        }
+      })
+      return is_stunner
     }
   }
 

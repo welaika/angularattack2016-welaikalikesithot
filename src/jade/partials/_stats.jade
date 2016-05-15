@@ -1,6 +1,5 @@
 #match_stats(ng-show="mainCtrl.isTabVisible('match_stats')" match-stats allies-heroes="{{mainCtrl.selectedHero('allies')}}" enemies-heroes="{{mainCtrl.selectedHero('enemies')}}" stats="mainCtrl.stats")
   h2 Match Statistics
-
   .grid.stats
     .grid__item.stats__title
       | complexity
@@ -38,5 +37,9 @@
     .grid__item.width-8-12.lap-pull-2-12.lte-tab-fill.stats__bar
       .stats__bar__allies(style="width: {{mainCtrl.stats.utility.allies | number: 0}}%")
       .stats__bar__enemies(style="width: {{mainCtrl.stats.utility.enemies | number: 0}}%")
+
+    .grid__item.width-4-12 Stunners
+    .grid__item.width-4-12 {{mainCtrl.stats.allies.stunners}}
+    .grid__item.width-4-12 {{mainCtrl.stats.enemies.stunners}}
 
   button.button(ng-click="mainCtrl.setCurrentTab('enemies')") <- Back to enemy team
