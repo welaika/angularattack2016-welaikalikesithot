@@ -38,8 +38,14 @@
       .stats__bar__allies(style="width: {{mainCtrl.stats.utility.allies | number: 0}}%")
       .stats__bar__enemies(style="width: {{mainCtrl.stats.utility.enemies | number: 0}}%")
 
-    .grid__item.width-4-12 Stunners
-    .grid__item.width-4-12 {{mainCtrl.stats.allies.stunners}}
-    .grid__item.width-4-12 {{mainCtrl.stats.enemies.stunners}}
+    .grid__item.stats__title
+      | stunners
+    .grid__item.width-2-12.lte-tab-6-12.stats__value
+      | {{mainCtrl.stats.stunners.allies.length | number: 2}} %
+    .grid__item.width-2-12.lte-tab-6-12.lap-push-8-12.stats__value--enemies
+      | {{mainCtrl.stats.stunners.enemies.length | number: 2}} %
+    .grid__item.width-8-12.lap-pull-2-12.lte-tab-fill.stats__bar
+      .stats__bar__allies(style="width: {{mainCtrl.stats.stunners.allies.length | number: 0}}%")
+      .stats__bar__enemies(style="width: {{mainCtrl.stats.stunners.enemies.length | number: 0}}%")
 
   button.button(ng-click="mainCtrl.setCurrentTab('enemies')") <- Back to enemy team
