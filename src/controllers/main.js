@@ -7,20 +7,33 @@ class MainController {
     this.filteredHeroList = {}
     this.stats = { allies: {complexity: 0, damage: 0, survivability: 0, utility: 0, hp: 0, hpRegen: 0}, enemies: {complexity: 0, damage: 0, survivability: 0, utility: 0, hp: 0, hpRegen: 0} }
 
-    HeroesRepoService.getHeroes()
-      .then((response) => {
-        this.filteredHeroList = this.heroList = response.data.map((hero) => {
-          return Object.assign(hero, {
-            selected: {
-              allies: false,
-              enemies: false
-            }
-          });
+    if(navigator.onLine) {
+      HeroesRepoService.getHeroes()
+        .then((response) => {
+          localStorage.setItem('heroes_json', JSON.stringify(response));
+          this.heroList = response.data.map((hero) => {
+            return Object.assign(hero, {
+              selected: {
+                allies: false,
+                enemies: false
+              }
+            });
+          })
         })
+        .catch((response) => {
+          $log.error(`Error fetching heroes list: ${response.status} status code`)
+        })
+    } else {
+      let cached_heroes_data = JSON.parse(localStorage.getItem('heroes_json'));
+      this.heroList = cached_heroes_data.data.map((hero) => {
+        return Object.assign(hero, {
+          selected: {
+            allies: false,
+            enemies: false
+          }
+        });
       })
-      .catch((response) => {
-        $log.error(`Error fetching heroes list: ${response.status} status code`)
-      })
+    }
   }
 
   selectedHero(team) {
