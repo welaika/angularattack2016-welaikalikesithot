@@ -5,3 +5,4 @@ app/*
 .DS_Store
 index.html
 .sass-cache
+service-worker.js

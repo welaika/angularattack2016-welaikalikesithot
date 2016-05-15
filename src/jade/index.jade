@@ -17,11 +17,11 @@ html
     link(rel="icon", type="image/png", href="/images/favicon-16x16.png", sizes="16x16")
     link(rel="manifest", href="/manifest.json")
     link(rel="mask-icon", href="/images/safari-pinned-tab.svg", color="#2592d9")
-    meta(name="apple-mobile-web-app-title", content="WIP")
-    meta(name="application-name", content="WIP")
+    meta(name="apple-mobile-web-app-title", content="Like it Hots!")
+    meta(name="application-name", content="Like it Hots!")
     meta(name="msapplication-TileColor", content="#2592d9")
     meta(name="msapplication-TileImage", content="/images/mstile-144x144.png")
-    meta(name="theme-color", content="#2592d9")
+    meta(name="theme-color", content="#0d0119")
     link(rel='stylesheet', href='app/application.css')
     // Init
     script(src='app/angular.min.js')
@@ -56,3 +56,5 @@ html
       ga('create', 'UA-39226618-9', 'auto');
       ga('set', 'anonymizeIp', true);
       ga('send', 'pageview');
+
+    script(src="service-worker-registration.js")

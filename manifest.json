@@ -1,5 +1,5 @@
 {
-	"name": "WIP",
+	"name": "Like it Hots!",
 	"icons": [
 		{
 			"src": "\/images\/android-chrome-36x36.png",
@@ -38,7 +38,7 @@
 			"density": 4
 		}
 	],
-	"start_url": "http:\/\/weiaikalikesithot.2016.angularattack.io",
+	"start_url": "https:\/\/weiaikalikesithot.2016.angularattack.io",
 	"display": "standalone",
 	"orientation": "portrait"
 }
