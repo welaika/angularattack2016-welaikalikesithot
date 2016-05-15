@@ -44,5 +44,35 @@
       .stats__bar__allies(style="width: {{mainCtrl.stats.stunners.allies | number: 0}}%")
       .stats__bar__enemies(style="width: {{mainCtrl.stats.stunners.enemies | number: 0}}%")
 
+    .grid__item.stats__title
+      | health points
+    .grid__item.width-2-12.lte-tab-6-12.stats__value
+      | {{mainCtrl.stats.hp.allies | number: 2}} %
+    .grid__item.width-2-12.lte-tab-6-12.lap-push-8-12.stats__value--enemies
+      | {{mainCtrl.stats.hp.enemies | number: 2}} %
+    .grid__item.width-8-12.lap-pull-2-12.lte-tab-fill.stats__bar
+      .stats__bar__allies(style="width: {{mainCtrl.stats.hp.allies | number: 0}}%")
+      .stats__bar__enemies(style="width: {{mainCtrl.stats.hp.enemies | number: 0}}%")
+
+    .grid__item.stats__title
+      | health regeneration
+    .grid__item.width-2-12.lte-tab-6-12.stats__value
+      | {{mainCtrl.stats.hpRegen.allies | number: 2}} %
+    .grid__item.width-2-12.lte-tab-6-12.lap-push-8-12.stats__value--enemies
+      | {{mainCtrl.stats.hpRegen.enemies | number: 2}} %
+    .grid__item.width-8-12.lap-pull-2-12.lte-tab-fill.stats__bar
+      .stats__bar__allies(style="width: {{mainCtrl.stats.hpRegen.allies | number: 0}}%")
+      .stats__bar__enemies(style="width: {{mainCtrl.stats.hpRegen.enemies | number: 0}}%")
+
+    .grid__item.stats__title
+      | average over all
+    .grid__item.width-2-12.lte-tab-6-12.stats__value
+      | {{mainCtrl.stats.average.allies | number: 2}} %
+    .grid__item.width-2-12.lte-tab-6-12.lap-push-8-12.stats__value--enemies
+      | {{mainCtrl.stats.average.enemies | number: 2}} %
+    .grid__item.width-8-12.lap-pull-2-12.lte-tab-fill.stats__bar
+      .stats__bar__allies(style="width: {{mainCtrl.stats.average.allies | number: 0}}%")
+      .stats__bar__enemies(style="width: {{mainCtrl.stats.average.enemies | number: 0}}%")
+
   .align--center.space--both-2
     button.button.upcase(ng-click="mainCtrl.setCurrentTab('enemies')") < Back to enemy team

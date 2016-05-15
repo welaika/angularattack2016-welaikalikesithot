@@ -51,12 +51,23 @@ class MatchStatsDirective{
     function addedRatingsFor(heroes) {
       let addedRatings = {}
       let ratings = getRatingsForHeroes(heroes)
+      let stats = getStatsForHeroes(heroes)
       addedRatings.stunners = getStunners(heroes).length
       addedRatings.complexity = addedRateFor(ratings, 'complexity')
       addedRatings.damage = addedRateFor(ratings, 'damage')
       addedRatings.survivability = addedRateFor(ratings, 'survivability')
       addedRatings.utility = addedRateFor(ratings, 'utility')
+      addedRatings.hp = addedRateFor(stats, 'hp')
+      addedRatings.hpRegen = addedRateFor(stats, 'hpRegen')
 
+      console.log(addedRatings.stunners)
+      let entries = Object.entries(addedRatings)
+      let sum = 0
+      entries.forEach((entry) => {
+        sum = sum + entry[1]
+      })
+
+      addedRatings.average = sum / 7
       return addedRatings
     }
 
@@ -66,6 +77,11 @@ class MatchStatsDirective{
 
     function getRatingsForHeroes(heroes) {
       return angular.fromJson(heroes).map((hero) => hero.ratings)
+    }
+
+    function getStatsForHeroes(heroes) {
+      // hard fix for last vikings
+      return angular.fromJson(heroes).map((hero) => hero.stats[hero.id] ||  hero.stats['HeroOlaf'])
     }
 
     function getAbilitiesDescription(hero) {

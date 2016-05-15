@@ -5,7 +5,7 @@ class MainController {
     this.heroList = {}
     this.searchText = undefined
     this.filteredHeroList = {}
-    this.stats = { allies: {complexity: 0, damage: 0, survivability: 0, utility: 0}, enemies: {complexity: 0, damage: 0, survivability: 0, utility: 0} }
+    this.stats = { allies: {complexity: 0, damage: 0, survivability: 0, utility: 0, hp: 0, hpRegen: 0}, enemies: {complexity: 0, damage: 0, survivability: 0, utility: 0, hp: 0, hpRegen: 0} }
 
     HeroesRepoService.getHeroes()
       .then((response) => {
