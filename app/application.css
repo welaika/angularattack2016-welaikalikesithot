@@ -8,8 +8,8 @@
   font-family: "icons";
   font-weight: normal;
   font-style: normal;
-  src: url("/fonts/icons.eot") format("embedded-opentype");
-  src: url("/fonts/icons.eot?#iefix") format("embedded-opentype"), url("/fonts/icons.woff2") format("woff2"), url("/fonts/icons.woff") format("woff"), url("/fonts/icons.ttf") format("ttf"), url("/fonts/icons.svg#icons") format("svg"); }
+  src: url("fonts/icons.eot") format("embedded-opentype");
+  src: url("fonts/icons.eot?#iefix") format("embedded-opentype"), url("fonts/icons.woff2") format("woff2"), url("fonts/icons.woff") format("woff"), url("fonts/icons.ttf") format("ttf"), url("fonts/icons.svg#icons") format("svg"); }
 html {
   font-size: 14.4px; }
   @media screen and (min-width: 1024px) {
@@ -17,7 +17,7 @@ html {
       font-size: 16px; } }
 
 body {
-  background: url("/images/trim-triangles-pink.png") no-repeat center bottom #0d0119;
+  background: url("images/trim-triangles-pink.png") no-repeat center bottom #0d0119;
   font-family: "Titillium Web", sans-serif;
   font-weight: normal;
   font-size: 15px;
