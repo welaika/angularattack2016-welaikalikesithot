@@ -2,10 +2,10 @@
 // to these functions!
 
 @function image-url($path)
-  @return url('/images/#{$path}')
+  @return url('../images/#{$path}')
 
 @function font-url($path)
-  @return url('fonts/#{$path}')
+  @return url('../fonts/#{$path}')
 
 @each $function-name in image-url font-url
   @if not function-exists($function-name)
