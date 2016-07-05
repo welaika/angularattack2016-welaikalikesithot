@@ -2,8 +2,8 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300);
 @font-face {
   font-family: "TheFrontman";
-  src: url("/fonts/the_frontman-webfont.eot");
-  src: url("/fonts/the_frontman-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/the_frontman-webfont.woff2") format("woff2"), url("/fonts/the_frontman-webfont.woff") format("woff"), url("/fonts/the_frontman-webfont.ttf") format("truetype"), url("/fonts/the_frontman-webfont.svg#the_frontmanregular") format("svg"); }
+  src: url("fonts/the_frontman-webfont.eot");
+  src: url("fonts/the_frontman-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/the_frontman-webfont.woff2") format("woff2"), url("fonts/the_frontman-webfont.woff") format("woff"), url("fonts/the_frontman-webfont.ttf") format("truetype"), url("fonts/the_frontman-webfont.svg#the_frontmanregular") format("svg"); }
 @font-face {
   font-family: "icons";
   font-weight: normal;
