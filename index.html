@@ -1,0 +1,188 @@
+
+<html>
+  <head>
+    <title>Like it HOTS - Evaluate yours Heroes of The Storm Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/images/android-chrome-192x192.png" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#2592d9"/>
+    <meta name="apple-mobile-web-app-title" content="Like it Hots!"/>
+    <meta name="application-name" content="Like it Hots!"/>
+    <meta name="msapplication-TileColor" content="#2592d9"/>
+    <meta name="msapplication-TileImage" content="/images/mstile-144x144.png"/>
+    <meta name="theme-color" content="#0d0119"/>
+    <link rel="stylesheet" href="app/application.css"/>
+    <!-- Init-->
+    <script src="app/angular.min.js"></script>
+    <script src="app/polyfill.min.js"></script>
+    <!-- Main-->
+    <script src="app/app.js"></script>
+    <script src="app/constants.js"></script>
+    <!-- Services-->
+    <script src="app/services/heroes-repo.js"></script>
+    <script src="app/services/scroller.js"></script>
+    <!-- Filters-->
+    <script src="app/filters/image-name.js"></script>
+    <!-- Directives-->
+    <script src="app/directives/hero-select.js"></script>
+    <script src="app/directives/match-stats.js"></script>
+    <script src="app/directives/mobile-input.js"></script>
+    <script src="app/directives/hero-search.js"></script>
+    <!-- Controllers-->
+    <script src="app/controllers/main.js"></script>
+  </head>
+  <body ng-app="hots" ng-controller="MainController as mainCtrl">
+    <header class="align--center">
+      <h1 ng-click="mainCtrl.currentTab = 'allies'" class="button_active">Like it HOTS</h1>
+      <p>Choose the heroes of your team and of your adversaries' to see how they perform against each other. If you want to use this app on your mobile phone click on "Add to home screen" in your browser preferences.</p>
+    </header>
+    <div class="wrap">
+      <div id="allies" ng-show="mainCtrl.isTabVisible('allies')">
+        <h2 class="align--center">Allies Team</h2>
+        <div class="grid--narrow space--both-1">
+          <div class="grid__item grid--fill align--center violet">selected {{mainCtrl.selectedHero('allies').length}} / 5 heroes</div>
+          <div ng-repeat="hero in mainCtrl.heroList" ng-if="hero.selected.allies" hero-select="{{mainCtrl.selectedHero('allies').length}}" selected="hero.selected.allies" class="button_active grid__item width-4-12 eq-tab-3-12 eq-lap-2-12 desk-1-12 align--center hero-hots__cart__remove">
+            <div class="align--center">
+              <div style="background-image: url('images/heroes/{{hero.name | imageName }}.png')" class="hero-hots__card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="align--center space--both-1">
+          <button ng-click="mainCtrl.setCurrentTab('enemies')" ng-disabled="mainCtrl.selectedHero('allies').length &lt; 5" class="button upcase">Go to enemy team ></button>
+        </div>
+        <div class="grid">
+          <div class="grid__item width-12-12">
+            <input type="text" placeholder="search..." ng-model="mainCtrl.searchText" hero-search="hero-search" search-text="mainCtrl.searchText" hero-list="mainCtrl.heroList" filtered-hero-list="mainCtrl.filteredHeroList"/>
+          </div>
+        </div>
+        <div class="grid--narrow space--both-1">
+          <div ng-repeat="hero in mainCtrl.filteredHeroList" ng-if="!hero.selected.allies" hero-select="{{mainCtrl.selectedHero('allies').length}}" selected="hero.selected.allies" class="button_active grid__item width-4-12 eq-tab-3-12 eq-lap-2-12 desk-1-12 align--center hero-hots__cart__add">
+            <div class="align--center">
+              <div style="background-image: url('images/heroes/{{hero.name | imageName }}.png')" class="hero-hots__card"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="enemies" ng-show="mainCtrl.isTabVisible('enemies')">
+        <h2 class="align--center">Enemies Team</h2>
+        <div class="grid--narrow space--both-1">
+          <div class="grid__item grid--fill align--center violet">selected {{mainCtrl.selectedHero('enemies').length}} / 5 heroes</div>
+          <div ng-repeat="hero in mainCtrl.heroList" ng-if="hero.selected.enemies" hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected="hero.selected.enemies" class="button_active grid__item width-4-12 eq-tab-3-12 eq-lap-2-12 desk-1-12 align--center hero-hots__cart__remove">
+            <div class="align--center">
+              <div style="background-image: url('images/heroes/{{hero.name | imageName }}.png')" class="hero-hots__card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="align--center space--both-1">
+          <button ng-click="mainCtrl.setCurrentTab('allies')" class="button upcase space--both-1">< back to allies team</button>
+          <button ng-click="mainCtrl.setCurrentTab('match_stats')" ng-disabled="mainCtrl.selectedHero('enemies').length &lt; 5" class="button upcase space--both-1">Go to stats ></button>
+        </div>
+        <div class="grid--narrow">
+          <input type="text" placeholder="search..." ng-model="mainCtrl.searchText" hero-search="hero-search" search-text="mainCtrl.searchText" hero-list="mainCtrl.heroList" filtered-hero-list="mainCtrl.filteredHeroList"/>
+        </div>
+        <div class="grid--narrow space--both-1">
+          <div ng-repeat="hero in mainCtrl.filteredHeroList" ng-if="!hero.selected.enemies" hero-select="{{mainCtrl.selectedHero('enemies').length}}" selected="hero.selected.enemies" class="button_active grid__item width-4-12 eq-tab-3-12 eq-lap-2-12 desk-1-12 align--center hero-hots__cart__add">
+            <div class="align--center">
+              <div style="background-image: url('images/heroes/{{hero.name | imageName }}.png')" class="hero-hots__card"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="match_stats" ng-show="mainCtrl.isTabVisible('match_stats')" match-stats="match-stats" allies-heroes="{{mainCtrl.selectedHero('allies')}}" enemies-heroes="{{mainCtrl.selectedHero('enemies')}}" stats="mainCtrl.stats">
+        <h3 class="align--center">Match Statistics</h3>
+        <div class="grid stats">
+          <div class="grid__item stats__title">complexity</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 stats__value">{{mainCtrl.stats.complexity.allies | number: 2}} %</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 lap-push-8-12 stats__value--enemies">{{mainCtrl.stats.complexity.enemies | number: 2}} %</div>
+          <div class="grid__item width-8-12 lap-pull-2-12 lte-tab-fill stats__bar">
+            <div style="width: {{mainCtrl.stats.complexity.allies | number: 0}}%" class="stats__bar__allies"></div>
+            <div style="width: {{mainCtrl.stats.complexity.enemies | number: 0}}%" class="stats__bar__enemies"></div>
+          </div>
+          <div class="grid__item stats__title">damage</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 stats__value">{{mainCtrl.stats.damage.allies | number: 2}} %</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 lap-push-8-12 stats__value--enemies">{{mainCtrl.stats.damage.enemies | number: 2}} %</div>
+          <div class="grid__item width-8-12 lap-pull-2-12 lte-tab-fill stats__bar">
+            <div style="width: {{mainCtrl.stats.damage.allies | number: 0}}%" class="stats__bar__allies"></div>
+            <div style="width: {{mainCtrl.stats.damage.enemies | number: 0}}%" class="stats__bar__enemies"></div>
+          </div>
+          <div class="grid__item stats__title">survivability</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 stats__value">{{mainCtrl.stats.survivability.allies | number: 2}} %</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 lap-push-8-12 stats__value--enemies">{{mainCtrl.stats.survivability.enemies | number: 2}} %</div>
+          <div class="grid__item width-8-12 lap-pull-2-12 lte-tab-fill stats__bar">
+            <div style="width: {{mainCtrl.stats.survivability.allies | number: 0}}%" class="stats__bar__allies"></div>
+            <div style="width: {{mainCtrl.stats.survivability.enemies | number: 0}}%" class="stats__bar__enemies"></div>
+          </div>
+          <div class="grid__item stats__title">utility</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 stats__value">{{mainCtrl.stats.utility.allies | number: 2}} %</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 lap-push-8-12 stats__value--enemies">{{mainCtrl.stats.utility.enemies | number: 2}} %</div>
+          <div class="grid__item width-8-12 lap-pull-2-12 lte-tab-fill stats__bar">
+            <div style="width: {{mainCtrl.stats.utility.allies | number: 0}}%" class="stats__bar__allies"></div>
+            <div style="width: {{mainCtrl.stats.utility.enemies | number: 0}}%" class="stats__bar__enemies"></div>
+          </div>
+          <div class="grid__item stats__title">stunners</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 stats__value">{{mainCtrl.stats.stunners.allies | number: 2}} %</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 lap-push-8-12 stats__value--enemies">{{mainCtrl.stats.stunners.enemies | number: 2}} %</div>
+          <div class="grid__item width-8-12 lap-pull-2-12 lte-tab-fill stats__bar">
+            <div style="width: {{mainCtrl.stats.stunners.allies | number: 0}}%" class="stats__bar__allies"></div>
+            <div style="width: {{mainCtrl.stats.stunners.enemies | number: 0}}%" class="stats__bar__enemies"></div>
+          </div>
+          <div class="grid__item stats__title">health points</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 stats__value">{{mainCtrl.stats.hp.allies | number: 2}} %</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 lap-push-8-12 stats__value--enemies">{{mainCtrl.stats.hp.enemies | number: 2}} %</div>
+          <div class="grid__item width-8-12 lap-pull-2-12 lte-tab-fill stats__bar">
+            <div style="width: {{mainCtrl.stats.hp.allies | number: 0}}%" class="stats__bar__allies"></div>
+            <div style="width: {{mainCtrl.stats.hp.enemies | number: 0}}%" class="stats__bar__enemies"></div>
+          </div>
+          <div class="grid__item stats__title">health regeneration</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 stats__value">{{mainCtrl.stats.hpRegen.allies | number: 2}} %</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 lap-push-8-12 stats__value--enemies">{{mainCtrl.stats.hpRegen.enemies | number: 2}} %</div>
+          <div class="grid__item width-8-12 lap-pull-2-12 lte-tab-fill stats__bar">
+            <div style="width: {{mainCtrl.stats.hpRegen.allies | number: 0}}%" class="stats__bar__allies"></div>
+            <div style="width: {{mainCtrl.stats.hpRegen.enemies | number: 0}}%" class="stats__bar__enemies"></div>
+          </div>
+          <div class="grid__item stats__title">average over all</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 stats__value">{{mainCtrl.stats.average.allies | number: 2}} %</div>
+          <div class="grid__item width-2-12 lte-tab-6-12 lap-push-8-12 stats__value--enemies">{{mainCtrl.stats.average.enemies | number: 2}} %</div>
+          <div class="grid__item width-8-12 lap-pull-2-12 lte-tab-fill stats__bar">
+            <div style="width: {{mainCtrl.stats.average.allies | number: 0}}%" class="stats__bar__allies"></div>
+            <div style="width: {{mainCtrl.stats.average.enemies | number: 0}}%" class="stats__bar__enemies"></div>
+          </div>
+        </div>
+        <div class="align--center space--both-2">
+          <button ng-click="mainCtrl.setCurrentTab('enemies')" class="button upcase">< Back to enemy team</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer align--center">
+      <hr class="align--center"/>
+      <p>developed in 48 hours during 2016</p>
+      <p><a href="https://www.angularattack.com" target="blank" class="no-underline"><img src="./images/logo2.png"/><span>ANGULAR ATTACK</span></a></p>
+      <p>by&nbsp;<a href="https://github.com/orgs/welaika/people/mukkoo" target="blank">@mukkoo</a>&nbsp;<a href="https://github.com/pioneerskies" target="blank">@Pioneer_Skies</a>&nbsp;<a href="https://github.com/orgs/welaika/people/namuit" target="blank">@c1p8</a>&nbsp;<a href="https://github.com/orgs/welaika/people/ramensoup" target="blank">@ramensoup7</a>: the&nbsp;<a href="http://dev.welaika.com/" target="blank">weLaika</a>&nbsp;team</p>
+      <p><small>We are not affiliated with Blizzard Inc. All trademarks are the property of their respective owners.</small></p>
+    </div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-39226618-9', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+      
+    </script>
+    <script src="service-worker-registration.js"></script>
+  </body>
+</html>

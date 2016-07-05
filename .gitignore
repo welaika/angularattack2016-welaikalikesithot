@@ -1,8 +1,6 @@
 node_modules
 npm-debug.log
-app/*
 !app/.gitkeep
 .DS_Store
-index.html
 .sass-cache
 service-worker.js
