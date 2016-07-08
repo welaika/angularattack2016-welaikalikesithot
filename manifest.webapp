@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "name": "Like it Hots!",
+  "launch_path": "/index.html",
+  "description": "Like it Hots!",
+  "icons": {
+    "128": "/images/android-chrome-144x144.png"
+  },
+  "developer": {
+    "name": "weLaika",
+    "url": "http://dev.welaika.com"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Like it Hots!",
+      "description": "Like it Hots!"
+    },
+    "it": {
+      "name": "Like it Hots!",
+      "description": "Like it Hots!"
+    }
+  }
+}

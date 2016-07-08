@@ -38,7 +38,9 @@
 			"density": 4
 		}
 	],
-	"start_url": "https:\/\/weiaikalikesithot.2016.angularattack.io",
+	"start_url": "/?homescreen=1",
 	"display": "standalone",
-	"orientation": "portrait"
+	"orientation": "portrait",
+	"background_color": "#0d0119",
+  "theme_color": "#0d0119"
 }
